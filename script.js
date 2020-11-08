@@ -102,55 +102,55 @@ var special = [
 
 function getPassChar() {
 
-  //alert("Please choose a password length.");
+  alert("Please choose a password length.");
 
-  var passLength = parseInt(
+  var length = parseInt(
     prompt("Please enter a number between 8 and 128.")
   );
 
-  if (isNaN(passLength) === true || passLength === "" || passLength === null || passLength <= 7 || passLength >=129 ) {
+  if (isNaN(length) === true || length === "" || length === null || length <= 7 || length >=129 ) {
     alert('Please enter a valid number.');
     return getPassChar();
   }
 
-  console.log(passLength);
-  /*window.alert("You have chosen a/an " + passLength + " character length.");*/
+  console.log(length);
+  window.alert("You have chosen a/an " + length + " character length.");
 
   //debugger;
 
-  //alert("Please choose character type(s).");
+  alert("Please choose character type(s).");
 
   var charLowerCase = confirm('Click OK to include lower case.');
   console.log(charLowerCase);
-  /*if (charLowerCase) {
+  if (charLowerCase) {
     window.alert("You have chosen lower case characters.");
   } else {
     window.alert("You have chosen no lowercase characters.");
-  }*/ 
+  }
 
   var charUpperCase = confirm('Click OK to include upper case.');
   console.log(charUpperCase);
-  /*if (charUpperCase) {
+  if (charUpperCase) {
     window.alert("You have chosen upper case characters.");
   } else {
     window.alert("You have chosen no upper case characters.");
-  }*/
+  }
   
   var charNumber = confirm('Click OK to include numbers.');
   console.log(charNumber);
-  /*if (charNumber) {
+  if (charNumber) {
     window.alert("You have chosen numbers.");
   } else {
     window.alert("You have chosen no numbers.");
-  }*/
+  }
 
   var charSpecial = confirm('Click OK to include special characters.');
   console.log(charSpecial);
-  /*if (charSpecial) {
+  if (charSpecial) {
     window.alert("You have chosen special characters.");
   } else {
     window.alert("You have chosen no special characters.");
-  }*/
+  }
 
   if (
     charLowerCase === false &&
@@ -163,11 +163,11 @@ function getPassChar() {
   }
 
   var passCharacters = {
-    passLength: passLength,
-    charSpecial: charSpecial,
-    charLowerCase: charLowerCase,
-    charUpperCase: charUpperCase,
-    charNumber: charNumber
+    length,
+    charSpecial,
+    charLowerCase,
+    charUpperCase,
+    charNumber
   };
   //debugger;
 
@@ -176,7 +176,7 @@ function getPassChar() {
 }
 
 function getRandomPass(arr) {
-  var randomArray = Math.floor(Math.random() * arr.passLength);
+  var randomArray = Math.floor(Math.random() * arr.length);
   var randomChar = arr[randomArray];
 
   return randomChar;
@@ -210,18 +210,19 @@ console.log(characters);
     selectedVariables.push(getRandomPass(numbers));
   }
 
-  for (var i = 0; i < characters.passLength; ++i) {
+  for (var i = 0; i < characters.length; ++i) {
     var passVariable = getRandomPass(passVariables);
 
     result.push(passVariable);
   }
 
-  for (var i = 0; i < selectedVariables.passLength; ++i) {
+  for (var i = 0; i < selectedVariables.length; ++i) {
     result[i] = selectedVariables[i];
   }
   //debugger;
+  console.log(selectedVariables)
   return result.join('');
-  
+
 }
 
 // Get references to the #generate element
