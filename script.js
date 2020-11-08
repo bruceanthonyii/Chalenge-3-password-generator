@@ -159,7 +159,7 @@ function getPassChar() {
     charSpecial === false
   ) {
     alert("Please select at least one character type.");
-    return;
+    return getPassChar();
   }
 
   var passCharacters = {
